@@ -12,18 +12,18 @@ public class PaisesPrueba1 {
 		for (int i = 0; i < pais.length; i++) {
 			Paises p = new Paises();
 			System.out.println("dime el nombre del país ");
-			String a = (sc.nextLine());
+			String a = sc.nextLine();
 			p.setNombre(a);
 
 			System.out.println("¿existe algun caso de Coronavirus? Escribir si o no ");
-			String resp = (sc.nextLine());
+			String resp = sc.nextLine();
 
 			if ("si".equalsIgnoreCase(resp)) {
 				System.out.println("cuantos casos hay:");
-				int n = (sc.nextInt());
+				int n = Integer.parseInt(sc.nextLine());
 				p.setNumeroInfectados(n);
 
-				// p.isPaisesInfectados();
+				// p.isPaisesInfectados();s
 
 			}
 
