@@ -17,8 +17,7 @@ public class Ejercicio13 {
 
 		System.out.println();
 
-		while (km = millas / x)
-			;
+		// TODO while (km = millas / x)
 
 	}
 

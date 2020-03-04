@@ -27,7 +27,7 @@ public class Ejercicio4 {
 			System.out.println(A + " y " + B + " no son las mismas letras.");
 		}
 
-		// Ejercicio 5: Programa java que lea dos caracteres por teclado y
+		// TODO Ejercicio 5: Programa java que lea dos caracteres por teclado y
 		// compruebe si los dos son letras minúsculas
 
 		char C;

@@ -37,17 +37,17 @@ public class Ejercicio1 {
 		// Programa que lea un carácter por teclado y compruebe si es una letra
 		// mayúscula
 
-		char letra;
+		// char letra;
 
-		System.out.println("dime una letra");
-		letra = (char) sc.read();
+		// System.out.println("dime una letra");
+		// letra = (char) sc.read();
 
-		if (Character.isUpperCase(letra)) {
-			System.out.println(letra + "es mayuscula");
-		} else {
-			System.out.println(letra + "es minuscula");
-		}
+		// if (Character.isUpperCase(letra)) {
+		// System.out.println(letra + "es mayuscula");
+		// } else {
+		// System.out.println(letra + "es minuscula");
 
 		sc.close();
-	}
-}
+	}// main
+
+}// class
