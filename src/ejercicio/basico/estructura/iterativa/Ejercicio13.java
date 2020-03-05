@@ -1,5 +1,7 @@
 package ejercicio.basico.estructura.iterativa;
 
+import java.util.Scanner;
+
 public class Ejercicio13 {
 
 	public static void main(String[] args) {
@@ -14,11 +16,31 @@ public class Ejercicio13 {
 		float millas;
 		float km;
 		float x = 1.6093f;
+		boolean continuar = false;
 
-		System.out.println();
+		Scanner sc = new Scanner(System.in);
+
+		do {
+
+			System.out.println("dime un numero en millas");
+			millas = Integer.parseInt(sc.nextLine());
+
+			if (millas == 0) {
+				System.out.println("no tienes mas millas por convertir");
+
+			} else {
+
+				km = x * millas;
+
+				System.out.println(millas + " equivale a " + km);
+			}
+
+		} while (continuar);
+
+		sc.close();
 
 		// TODO while (km = millas / x)
 
-	}
+	}// main
 
-}
+}// class

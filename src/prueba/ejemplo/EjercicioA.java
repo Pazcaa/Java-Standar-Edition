@@ -19,8 +19,8 @@ public class EjercicioA {
 		int[] alturas = new int[5];
 		int media;// altura media
 		int suma = 0;// suma de todas las alturas
-		int min = Integer.MIN_VALUE;
-		int max = Integer.MAX_VALUE;
+		int min = Integer.MAX_VALUE;
+		int max = Integer.MIN_VALUE;
 		Scanner sc = new Scanner(System.in);
 
 		for (int i = 0; i < alturas.length; i++) {
@@ -32,7 +32,7 @@ public class EjercicioA {
 				min = cm;
 			} // if
 
-			if (max > cm) {
+			if (max < cm) {
 				max = cm;
 			} // if
 
@@ -42,7 +42,7 @@ public class EjercicioA {
 
 		media = suma / 5;
 
-		System.out.println("las alturas ingresadas son: " + alturas[5]);
+		System.out.println("las alturas ingresadas son: " + alturas);
 		System.out.println("la altura media del grupo es de " + media);
 
 		System.out.println("la altura minima del grupo es de " + min);
