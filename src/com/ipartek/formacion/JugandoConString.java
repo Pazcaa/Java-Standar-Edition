@@ -86,7 +86,7 @@ public class JugandoConString {
 
 		String[] CVS = lineaCVS.split(";");
 
-		String nombre1;
+		// String nombre1;
 		String apellido;
 		String edad;
 		String sueldo;

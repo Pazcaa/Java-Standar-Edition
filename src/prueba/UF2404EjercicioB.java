@@ -5,9 +5,9 @@ import java.util.Scanner;
 /**
  * Crear un proyecto en modo consola que nos muestre un menú de 3 opciones
  * <ol>
- * <li>• Calcular la letra del dni</li>
- * <li>• Calcular medida de cm a pulgadas</li>
- * <li>• Salir</li>
+ * <li>Calcular la letra del dni</li>
+ * <li>Calcular medida de cm a pulgadas</li>
+ * <li>Salir</li>
  * </ol>
  * Hacer que dicho menú se ejecute en bucle hasta que se pulse salir, y si el
  * usuario escoge cada una de las funciones, que permita introducir los datos
@@ -22,8 +22,6 @@ public class UF2404EjercicioB {
 	static boolean continuar;
 	static String dni;
 	static int dni2;
-	static String[] valido;
-	static String[] DNI;
 
 	public static void main(String[] args) {
 
@@ -94,6 +92,8 @@ public class UF2404EjercicioB {
 
 			} catch (Exception e) {
 				System.out.println("tu dni no es valido, por favor escribe 8 digitos");
+				dni = "z";
+
 			} // try / catch
 
 		} while (dni == "z");

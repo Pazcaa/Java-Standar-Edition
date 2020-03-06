@@ -16,7 +16,7 @@ public class Ejercicio13 {
 		float millas;
 		float km;
 		float x = 1.6093f;
-		boolean continuar = false;
+		boolean continuar;
 
 		Scanner sc = new Scanner(System.in);
 
@@ -27,12 +27,14 @@ public class Ejercicio13 {
 
 			if (millas == 0) {
 				System.out.println("no tienes mas millas por convertir");
+				continuar = false;
 
 			} else {
 
 				km = x * millas;
 
 				System.out.println(millas + " equivale a " + km);
+				continuar = true;
 			}
 
 		} while (continuar);
