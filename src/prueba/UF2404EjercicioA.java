@@ -22,20 +22,22 @@ public class UF2404EjercicioA {
 		double suma = 0;// suma de todas las notas
 		double min = Integer.MAX_VALUE; // me indica la nota minima del array
 		double max = Integer.MIN_VALUE; // me indica la nota maxima del array
+		double nota = 0;// nota inicial para verificar error al ingresar numeros
 		Scanner sc = new Scanner(System.in);
-		double nota = 0;
 
 		for (int i = 0; i < notas.length; i++) {
 
 			System.out.println("Dime tu nota porfavor");
-			nota = -1;
+			nota = -1;// para cuando ingresan notas no validas
 
 			do {
+
 				try {
 					nota = Double.parseDouble(sc.nextLine());// me convierte el numero ingresado a double
 				} catch (Exception e) {
 					System.out.println("lo sentimos pero no es una nota, escribe un numero");
 				}
+
 			} while (nota == -1);
 
 			notas[i] = nota;

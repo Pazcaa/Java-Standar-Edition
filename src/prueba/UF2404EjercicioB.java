@@ -20,6 +20,10 @@ public class UF2404EjercicioB {
 
 	static Scanner sc;
 	static boolean continuar;
+	static String dni;
+	static int dni2;
+	static String[] valido;
+	static String[] DNI;
 
 	public static void main(String[] args) {
 
@@ -70,14 +74,34 @@ public class UF2404EjercicioB {
 
 	private static void calcularDNI() {
 		// opcion 1
+
+		dni = "z";
 		System.out.println("Eliges calcular tu letra del DNI");
-		System.out.println("porfavor escribe tu dni");
-		int dni = Integer.parseInt(sc.nextLine()); // transforma el numero del dni en un solo numero entero
+		do {
+
+			try {
+
+				System.out.println("porfavor escribe tu dni");
+				dni = sc.nextLine();
+				dni2 = Integer.parseInt(dni);
+
+				if (dni.length() == 8) {
+					System.out.println("Tu numero de DNI es " + dni);
+				} else {
+					System.out.println("tu dni no es valido, por favor escribe 8 digitos");
+					dni = "z";
+				} // else
+
+			} catch (Exception e) {
+				System.out.println("tu dni no es valido, por favor escribe 8 digitos");
+			} // try / catch
+
+		} while (dni == "z");
 
 		char Letra[] = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H',
 				'L', 'C', 'K', 'E' };// array de las letras del dni
 
-		int resto = dni % 23;// me da el resto de la division del numero del dni en 23 (numero de letras)
+		int resto = dni2 % 23;// me da el resto de la division del numero del dni en 23 (numero de letras)
 
 		System.out.println("Tu letra del DNI es " + Letra[resto]); // te indica la letra que le corresponde al numero
 																	// del dni
