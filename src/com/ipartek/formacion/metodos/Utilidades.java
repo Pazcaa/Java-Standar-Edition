@@ -6,6 +6,9 @@ public class Utilidades {
 	public static final String IDIOMA_EUSKERA = "eu";
 	public static final String IDIOMA_INGLES = "en";
 
+	private static final char LETRA[] = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z',
+			'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E' };
+
 	static void saludar(String nombre) {
 		System.out.println("Hola  " + nombre);
 	}
@@ -17,24 +20,27 @@ public class Utilidades {
 	 *      IDIOMA_CASTELLANO
 	 * @param nombre
 	 * @param idioma
+	 * @throws Exception
 	 */
-	static void saludar(String nombre, String idioma) {
-
+	static String saludar(String nombre, String idioma) throws Exception {
+		// si es void el retorno, no hay return
+		String saludo = "";
 		switch (idioma) {
-		case "es":
-			System.out.println("Hola  " + nombre);
+		case IDIOMA_CASTELLANO:
+			saludo = "Hola " + nombre;
 			break;
-		case "eu":
-			System.out.println("Kaixo  " + nombre);
+		case IDIOMA_EUSKERA:
+			saludo = "Kaixo " + nombre;
 			break;
-		case "en":
-			System.out.println("Hello  " + nombre);
+		case IDIOMA_INGLES:
+			saludo = "Hello " + nombre;
 			break;
 
 		default:
-			System.out.println("su idioma no es valido");
-			break;
+			throw new Exception("su idioma no es valido " + idioma);
+
 		}
+		return saludo;
 
 	}
 
@@ -42,25 +48,49 @@ public class Utilidades {
 		return a + b;
 	}
 
-	static char calcularLetraDni(int dni) {
-
-		int resto = dni % 23;
-
-		char Letra[] = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H',
-				'L', 'C', 'K', 'E' };
-
-		return Letra[resto];
+	// sobrecarga (no es sobre-escritura)
+	// sobrecarga es el mismo nombre de metodo o funcion, mismo reetorno, pero
+	// diferentes parametros
+	static char calcularLetraDni(int dni) throws Exception {
+		String sDni = String.valueOf(dni);
+		return calcularLetraDni(sDni);
 	}
 
-	static char calcularLetraDni(String dni) {
-		int dni1 = Integer.parseInt(dni);
-		int resto1 = dni1 % 23;
+	// DRY Dont repeat Yourself
 
-		char Letra[] = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H',
-				'L', 'C', 'K', 'E' };
+	static char calcularLetraDni(String dni) throws Exception {
+		char letra = ' ';
+		int dni1 = 0;
+		if (dni != null && dni.length() == 8) {
+			dni1 = Integer.parseInt(dni);
+			int resto = dni1 % 23;
+			letra = LETRA[resto];
+		} else {
+			throw new Exception("No es un DNI valido " + dni);
+		}
+		return letra;
+	}
 
-		return Letra[resto1];
+	static int[] bubbleShort(int[] aDesordenado) {
 
+		int[] aOrdenado = aDesordenado;
+		int aux = 0;
+
+		for (int i = 0; i < aOrdenado.length; i++) {
+			for (int j = 0; j < (aOrdenado.length - 1); j++) {
+
+				if (aOrdenado[j] > aOrdenado[j + 1]) {
+
+					aux = aOrdenado[j];
+					aOrdenado[j] = aOrdenado[j + 1];
+					aOrdenado[j + 1] = aux;
+				}
+
+			}
+
+		}
+
+		return aOrdenado;
 	}
 
 }
