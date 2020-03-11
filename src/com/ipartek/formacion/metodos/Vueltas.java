@@ -11,22 +11,32 @@ public class Vueltas {
 
 		float diferencia = 0;
 
-		diferencia = entregado - importe;
+		do {
 
-		for (int i = 0; i < BILLETES_MONEDAS.length; i++) {
+			for (int i = 0; i < BILLETES_MONEDAS.length; i++) {
+				
+				diferencia = entregado - importe;
+				float resto = diferencia - BILLETES_MONEDAS[i]);
+				
+				if (resto < 0) {
+					int vuelto = (int) resto;
+					vueltas[i] = vuelto;
 
-			if (diferencia > BILLETES_MONEDAS[i]) {
+					diferencia = diferencia - vuelto;
 
-				float resto = (diferencia / BILLETES_MONEDAS[i]);
-				int vuelto = Float.floatToIntBits(resto);
-				vueltas[i] = vuelto;
+				}
+				if (entregado == importe) {
+					float resto = (entregado / BILLETES_MONEDAS[i]);
+					int vuelto = (int) resto;
+					vueltas[i] = vuelto;
 
-				diferencia = diferencia - vuelto;
+					diferencia = diferencia - vuelto;
+				} else {
+					
+					throw new Exception("El importe es mayor a lo entregado");
+				}
 			}
-
-		} // for
-
-		// TODO vuestro marron
+		} while (diferencia != 0);
 
 		return vueltas;
 
@@ -36,7 +46,7 @@ public class Vueltas {
 		// TODO vuestro marron
 
 		float dif = 0;
-		if (importe < entregado) {
+		if (importe <= entregado) {
 			dif = entregado - importe;
 
 		} else {
