@@ -9,34 +9,29 @@ public class Vueltas {
 
 		int[] vueltas = new int[BILLETES_MONEDAS.length];
 
-		float diferencia = 0;
+		float diferencia = entregado - importe;
 
-		do {
+		for (int i = 0; i < BILLETES_MONEDAS.length; i++) {
 
-			for (int i = 0; i < BILLETES_MONEDAS.length; i++) {
-				
-				diferencia = entregado - importe;
-				float resto = diferencia - BILLETES_MONEDAS[i]);
-				
-				if (resto < 0) {
-					int vuelto = (int) resto;
-					vueltas[i] = vuelto;
+			if (diferencia > 0) {
+				float resto = diferencia / BILLETES_MONEDAS[i];
+				vueltas[i] = (int) resto;
 
-					diferencia = diferencia - vuelto;
-
-				}
-				if (entregado == importe) {
-					float resto = (entregado / BILLETES_MONEDAS[i]);
-					int vuelto = (int) resto;
-					vueltas[i] = vuelto;
-
-					diferencia = diferencia - vuelto;
-				} else {
-					
-					throw new Exception("El importe es mayor a lo entregado");
-				}
+				diferencia = diferencia - (BILLETES_MONEDAS[i] * vueltas[i]);
 			}
-		} while (diferencia != 0);
+			if (entregado == importe) {
+				float resto = entregado / BILLETES_MONEDAS[i];
+				vueltas[i] = (int) resto;
+
+				entregado = entregado - (BILLETES_MONEDAS[i] * vueltas[i]);
+			}
+			if (diferencia == 0) {
+				break;
+			} else {
+				throw new Exception("El importe es mayor a lo entregado");
+			}
+
+		}
 
 		return vueltas;
 

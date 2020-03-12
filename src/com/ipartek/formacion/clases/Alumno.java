@@ -2,6 +2,9 @@ package com.ipartek.formacion.clases;
 
 public class Alumno extends Persona1 {
 
+	public static final int NOTA_MIN = 0;
+	public static final int NOTA_MAX = 10;
+
 	// atributos
 	private String email;
 	private String github;
@@ -12,7 +15,7 @@ public class Alumno extends Persona1 {
 		super();
 		this.email = "";
 		this.github = "";
-		this.nota = 0;
+		this.nota = 5;
 
 	}
 

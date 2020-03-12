@@ -8,7 +8,7 @@ public class Profesor extends Persona1 {
 	// constructor propio de profesor
 	public Profesor() {
 		super();// llama a Persona1
-		this.sueldo = 0;
+		this.sueldo = 2000;
 		this.materia = "";
 	}
 

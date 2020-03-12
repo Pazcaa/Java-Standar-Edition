@@ -20,7 +20,7 @@ public class VueltasTest {
 //		int[] vueltasCorrectas = new int[Vueltas.BILLETES_MONEDAS.length];
 //		assertArrayEquals(vueltas, vueltasCorrectas);
 
-		int[] vueltas2 = Vueltas.calcularVueltasOptimas(0.01f, 500.02f);
+		int[] vueltas2 = Vueltas.calcularVueltasOptimas(200f, 500f);
 		int[] vueltasCorrectas2 = new int[Vueltas.BILLETES_MONEDAS.length];
 		vueltasCorrectas2[0] = 1; // 500 eurazos
 		vueltasCorrectas2[14] = 1; // 1 centimo

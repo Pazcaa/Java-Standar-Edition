@@ -2,22 +2,32 @@ package com.ipartek.formacion.clases;
 
 public class Persona1 {
 
+	public static final char GENERO_FEMENINO = 'f';
+	public static final char GENERO_MASCULINO = 'm';
+	public static final char GENERO_INDEFINIDO = 'i';
+
 	// atributos
 	private String nombre;
-	private int altura;
+	private int altura; // en centimetros
 	private int edad;
-	private String genero;
+	private char genero;
 	private String raza;
 
 	// cosntructores
 	public Persona1() {
 		super();
-		this.nombre = "";
+		this.nombre = "anonimo";
 		this.altura = 0;
 		this.edad = 0;
-		this.genero = "";
+		this.genero = GENERO_INDEFINIDO;
 		this.raza = "";
 
+	}
+
+	public Persona1(String nombre, char genero) {
+		this();
+		this.nombre = nombre;
+		this.genero = genero;
 	}
 
 	public Persona1(String nombre, int altura, int edad) {
@@ -29,6 +39,7 @@ public class Persona1 {
 	}
 
 	// getters and setters
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -53,11 +64,11 @@ public class Persona1 {
 		this.edad = edad;
 	}
 
-	public String getGenero() {
+	public char getGenero() {
 		return genero;
 	}
 
-	public void setGenero(String genero) {
+	public void setGenero(char genero) {
 		this.genero = genero;
 	}
 
